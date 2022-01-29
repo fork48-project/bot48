@@ -1,0 +1,3 @@
+[submodule "mk48"]
+	path = mk48
+	url = https://github.com/SoftbearStudios/mk48.git
