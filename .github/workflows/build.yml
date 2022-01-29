@@ -16,8 +16,14 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+    
     - name: Build
       working-directory: ./bot48
       run: cargo build --release
+    
+    - uses: actions/upload-artifact@v2
+      with:
+        name: bot48
+        path: bot48/target/release/bot48
     #- name: Run tests
     #  run: cargo test --verbose
