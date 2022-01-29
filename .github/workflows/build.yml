@@ -19,10 +19,11 @@ jobs:
       with:
         submodules: recursive
     
-    - name: Download submodules
-      run: |
-        git submodule init
-        git submodule update
+    - name: Update Rust
+        uses: actions-rs/toolchain@v1
+        with:
+            toolchain: nightly
+            override: true
     
     - name: Build
       run: cargo build --manifest-path bot48/Cargo.toml --release
