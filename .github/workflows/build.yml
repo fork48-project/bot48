@@ -18,8 +18,7 @@ jobs:
     - uses: actions/checkout@v2
     
     - name: Build
-      working-directory: ./bot48
-      run: cargo build --release
+      run: cargo build --manifest-path bot48/Cargo.toml --release
     
     - uses: actions/upload-artifact@v2
       with:
