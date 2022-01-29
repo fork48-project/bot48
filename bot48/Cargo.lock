@@ -27,7 +27,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "bot48-rs"
+name = "bot48"
 version = "0.1.0"
 dependencies = [
  "bincode",
