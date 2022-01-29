@@ -20,10 +20,10 @@ jobs:
         submodules: recursive
     
     - name: Update Rust
-        uses: actions-rs/toolchain@v1
+      uses: actions-rs/toolchain@v1
         with:
-            toolchain: nightly
-            override: true
+          toolchain: nightly
+          override: true
     
     - name: Build
       run: cargo build --manifest-path bot48/Cargo.toml --release
