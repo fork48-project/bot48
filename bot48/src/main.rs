@@ -1,19 +1,13 @@
+use common::entity::EntityType;
+use core_protocol::id::GameId;
 use serde::{Serialize, Deserialize};
 
-#[derive(Serialize, Deserialize, Debug)]
-struct Point {
-	x: i32,
-	y: i32
-}
-
 fn main() {
-	let point = Point { x: 123, y: 456 };
-	
-	let serialized = bincode::serialize(&point).unwrap();//serde_json::to_string(&point).unwrap();
-	
-	println!("serialized = {:?}", serialized);
-	
-	let deserialized: Point = bincode::deserialize(&serialized[..]).unwrap();//serde_json::from_str(&serialized).unwrap();
-	
-	println!("deserialized = {:?}", deserialized);
+	unsafe {
+		EntityType::init();
+	}
+
+	let test = core_protocol::rpc::ClientRequest::CreateSession{game_id: GameId::Mk48, invitation_id: None, referrer: None, saved_session_tuple: None};
+
+	println!("test = {:?}", test);
 }
