@@ -1,5 +1,6 @@
+use std::env;
 use common::entity::EntityType;
-use core_protocol::id::GameId;
+use bot48::protocol::*;
 use serde::{Serialize, Deserialize};
 
 fn main() {
@@ -7,7 +8,11 @@ fn main() {
 		EntityType::init();
 	}
 
-	let test = core_protocol::rpc::ClientRequest::CreateSession{game_id: GameId::Mk48, invitation_id: None, referrer: None, saved_session_tuple: None};
+	// This will crash if you don't give it a JSON object to deserialize, but it works for now.
+
+	let args: Vec<String> = env::args().collect();
+
+	let test = decode_packet(&args[1]);
 
 	println!("test = {:?}", test);
 }
